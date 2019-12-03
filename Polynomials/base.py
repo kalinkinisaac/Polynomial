@@ -30,9 +30,41 @@ class BasePolynomial(ABC):
         raise NotImplementedError
 
     @abstractmethod
-    def __call__(self, *args, **kwargs):
+    def __call__(self, x):
         raise NotImplementedError
 
     @abstractmethod
     def degree(self):
+        raise NotImplementedError
+
+    @abstractmethod
+    def der(self, d=1):
+        raise NotImplementedError
+
+    @abstractmethod
+    def __mul__(self, other):
+        raise NotImplementedError
+
+    @abstractmethod
+    def __rmul__(self, other):
+        raise NotImplementedError
+
+    @abstractmethod
+    def __mod__(self, other):
+        raise NotImplementedError
+
+    @abstractmethod
+    def __rmod__(self, other):
+        raise NotImplementedError
+
+    @abstractmethod
+    def gcd(self, other):
+        raise NotImplementedError
+
+    @abstractmethod
+    def __iter__(self):
+        raise NotImplementedError
+
+    @abstractmethod
+    def __next__(self):
         raise NotImplementedError
