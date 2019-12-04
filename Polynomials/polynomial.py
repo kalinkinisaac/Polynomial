@@ -123,10 +123,23 @@ class Polynomial(BasePolynomial):
         return Polynomial(coefficients)
 
     def __mul__(self, other):
-        raise NotImplementedError
+        if isinstance(other, Polynomial):
+            a = self.__coefficients
+            b = other.__coefficients
+            n, m = self.degree(), other.degree()
+            c = [
+                sum([a[j] * b[i - j] for j in range(
+                        max(0, i - m),
+                        min(n, i) + 1
+                    )]
+                ) for i in range(n + m + 1)
+            ]
+            return Polynomial(c)
+        else:
+            return Polynomial([a * other for a in self.__coefficients])
 
     def __rmul__(self, other):
-        raise NotImplementedError
+        return self.__mul__(other)
 
     def __mod__(self, other):
         raise NotImplementedError
