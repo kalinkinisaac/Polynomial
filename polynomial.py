@@ -1,1 +1,1 @@
-from Polynomials import Polynomial, QuadraticPolynomial
+from polynomials import Polynomial, QuadraticPolynomial
